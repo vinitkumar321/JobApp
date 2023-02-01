@@ -1,0 +1,35 @@
+body {
+    background-color: #dff;
+}
+
+.navbar {
+    background-color: #ffc;
+    display: flex;
+}
+
+.heading {
+    float: left;
+    width: 20%;
+    height: 5%;
+    color: black;
+}
+
+.menu {
+    float: right;
+    width: 10%;
+    height: 5%;
+    color: black;
+}
+
+.signup-login {
+    display: flex;
+    margin-top: 10%;
+    margin-left: 25%;
+}
+
+.login-button {
+    margin-top: 10px;
+    float: right;
+    color: white;
+    background-color: blue;
+}

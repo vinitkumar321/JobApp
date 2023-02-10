@@ -5,16 +5,33 @@ export default class UserModel {
         console.log(`MODEL get_user :: user_id = ${user_id}`)
         let get_user_query = `SELECT * FROM USERS WHERE ID=${user_id}`;
         console.log(`MODEL get_user :: Query = ${get_user_query}`);
-        const query_res = await pool.query(get_user_query, (err, data) => {
-            if (err) {
-                console.log("ERROR :: Database access error - ", err);
-                return "";
-            } else {
-                console.log("SUCCESS :: Data extracted from the database = ", data);
-                return data;
-            }
+
+        return new Promise((resolve, reject) => {
+            pool.query(get_user_query, (err, results, fields) => {
+                if (err) {
+                    console.log("ERROR :: Couldn't connect to the database. ", err);
+                    return reject(err);
+                }
+                console.log("MODEL get_user :: results = ", results);
+                resolve(results);
+            });
         });
-        return query_res;
+    }
+
+    static async create_user(user_id, first_name, last_name) {
+        let query = `INSERT INTO USERS(id, first_name, last_name) VALUES(${user_id}, \"${first_name}\", \"${last_name}\")`;
+        console.log(`MODEL create_user :: Query = ${query}`);
+
+        return new Promise((resolve, reject) => {
+            pool.query(query, (err, results, fields) => {
+                if (err) {
+                    console.log("ERROR: Couldn't connect to the database. ", err);
+                    return reject(err);
+                }
+                console.log("MODEL create_user :: results = ", results);
+                resolve(results);
+            });
+        });
 
     }
 }

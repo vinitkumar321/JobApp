@@ -4,11 +4,11 @@ import userConstant from '../constants/user.js';
 
 export default class UserController {
 
-    static get_user(req, res, next) {
+    static async get_user(req, res, next) {
         try {
             let user_id = req.params.id;
             console.log("CONTROLLER get_user :: user_id = ", user_id);
-            const user_data = UserModel.get_user(user_id);
+            const user_data = await UserModel.get_user(user_id);
             console.log("CONTROLLER get_user :: user_data = ", user_data);
             res.status(200).json({ status: "success", body: user_data });
         } catch (e) {
@@ -21,8 +21,9 @@ export default class UserController {
             let user_id = req.body.id;
             let first_name = req.body.first_name;
             let last_name = req.body.last_name;
-            let email_id = req.body.email_id;
-            res.status(200).json({ status: "success" });
+            console.log(`CONTROLLER create_user :: user_id = ${user_id}, first_name = ${first_name}, last_name = ${last_name}`);
+            const result = await UserModel.create_user(user_id, first_name, last_name);
+            res.status(200).json({ status: "success", body: result.affectedRows });
         } catch (e) {
             res.status(500).json({ error: e.message });
         }

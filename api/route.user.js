@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import userConstant from '../constants/user.js';
 import UserController from '../controller/user.js';
 

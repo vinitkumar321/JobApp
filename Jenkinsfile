@@ -1,10 +1,16 @@
-/* Requires the Docker Pipeline plugin */
+/*  Author : @vinitkumar321
+    Jenkinsfile (Declarative Pipeline)
+    Requires the Docker Pipeline plugin 
+*/
+
 pipeline {
     agent {
         node {
             label 'my-nodejs-agent'
         }
     }
+
+    tools { nodejs "nodejs"}
 
     stages {
         stage('Checkout') {

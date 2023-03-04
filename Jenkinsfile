@@ -10,6 +10,8 @@ pipeline {
         }
     }
 
+    tools {nodejs "nodejs"}
+
     stages {
         stage('Checkout') {
             steps {

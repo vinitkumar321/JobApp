@@ -22,7 +22,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'npm run build'
             }
         }
 
@@ -35,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'npm install --production'
-                sh 'pm2 restart my-app'
+                sh 'pm2 restart jobapplicationmanager'
             }
         }
     }

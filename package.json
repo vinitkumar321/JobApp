@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint .  --ext .js",
     "lint-fix": "eslint --fix .  --ext .js",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "jest"
   },
   "author": "Vinit Kumar",

@@ -9,28 +9,26 @@ pipeline {
             label 'my-nodejs-agent'
         }
     }
-
+    triggers {
+        githubPush()
+    }
     tools {nodejs "nodejs"}
-
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-
         stage('Build') {
             steps {
                 sh 'npm install'
             }
         }
-
         stage('Test') {
             steps {
                 sh 'npm test'
             }
         }
-
         stage('Deploy') {
             steps {
                 sh 'npm install --production'

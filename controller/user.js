@@ -4,6 +4,16 @@ import userConstant from '../constants/user.js';
 
 export default class UserController {
 
+    static async get_all_users(req, res, next) {
+        try {
+            const user_data = await UserModel.get_all_users();
+            console.log("CONTROLLER get_all_users :: user_data = ", user_data);
+            res.status(200).json({ status: "success", body: user_data });
+        } catch (e) {
+            res.status(500).json({ error: e.message });
+        }
+    }
+
     static async get_user(req, res, next) {
         try {
             let user_id = req.params.id;

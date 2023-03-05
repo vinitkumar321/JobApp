@@ -11,6 +11,7 @@ userRouter
     });
 
 userRouter
+    .get('/all', UserController.get_all_users)
     .get('/:id', UserController.get_user)
     .post('/new', UserController.create_user)
     .put('/:id', UserController.update_user)

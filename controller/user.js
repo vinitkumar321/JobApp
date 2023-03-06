@@ -1,7 +1,7 @@
 import UserModel from '../model/user.js'
 
 export default class UserController {
-  static async get_all_users(req, res, next) {
+  static async get_all_users(req, res) {
     try {
       const user_data = await UserModel.get_all_users()
       console.log('CONTROLLER get_all_users :: user_data = ', user_data)
@@ -11,7 +11,7 @@ export default class UserController {
     }
   }
 
-  static async get_user(req, res, next) {
+  static async get_user(req, res) {
     try {
       let user_id = req.params.id
       console.log('CONTROLLER get_user :: user_id = ', user_id)
@@ -23,7 +23,7 @@ export default class UserController {
     }
   }
 
-  static async create_user(req, res, next) {
+  static async create_user(req, res) {
     try {
       let user_id = req.body.id
       let first_name = req.body.first_name
@@ -38,7 +38,7 @@ export default class UserController {
     }
   }
 
-  static async update_user(req, res, next) {
+  static async update_user(req, res) {
     try {
       let user_id = req.params.id
       let first_name = req.body.first_name
@@ -51,7 +51,7 @@ export default class UserController {
     }
   }
 
-  static async delete_user(req, res, next) {
+  static async delete_user(req, res) {
     try {
       let user_id = req.params.id
       console.log(`Controller :: user :: delete_user : user_id - ${user_id}`)
@@ -61,7 +61,7 @@ export default class UserController {
     }
   }
 
-  static async delete_all_users(req, res, next) {
+  static async delete_all_users(req, res) {
     try {
       res.status(200).json({ status: 'success' })
     } catch (e) {

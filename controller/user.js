@@ -1,35 +1,36 @@
 import UserModel from '../model/user.js'
+import userConstant from '../constants/user'
 
 export default class UserController {
-  static async get_all_users (req, res) {
+  static async get_all_users(req, res) {
     try {
       const user_data = await UserModel.get_all_users()
-      console.log('CONTROLLER get_all_users :: user_data = ', user_data)
+      console.log(`${userConstant.USER_CONTROLLER} :: get_all_users : user_data = ${user_data}`)
       res.status(200).json({ status: 'success', body: user_data })
     } catch (e) {
       res.status(500).json({ error: e.message })
     }
   }
 
-  static async get_user (req, res) {
+  static async get_user(req, res) {
     try {
       let user_id = req.params.id
-      console.log('CONTROLLER get_user :: user_id = ', user_id)
+      console.log(`${userConstant.USER_CONTROLLER} :: get_user : user_id - ${user_id}`)
       const user_data = await UserModel.get_user(user_id)
-      console.log('CONTROLLER get_user :: user_data = ', user_data)
+      console.log(`${userConstant.USER_CONTROLLER} :: get_user : user_data = ${user_data}`)
       res.status(200).json({ status: 'success', body: user_data })
     } catch (e) {
       res.status(500).json({ error: e.message })
     }
   }
 
-  static async create_user (req, res) {
+  static async create_user(req, res) {
     try {
       let user_id = req.body.id
       let first_name = req.body.first_name
       let last_name = req.body.last_name
       console.log(
-        `CONTROLLER create_user :: user_id = ${user_id}, first_name = ${first_name}, last_name = ${last_name}`
+        `${userConstant.USER_CONTROLLER} :: create_user : user_id = ${user_id}, first_name = ${first_name}, last_name = ${last_name}`
       )
       const result = await UserModel.create_user(user_id, first_name, last_name)
       res.status(200).json({ status: 'success', body: result.affectedRows })
@@ -38,14 +39,14 @@ export default class UserController {
     }
   }
 
-  static async update_user (req, res) {
+  static async update_user(req, res) {
     try {
       let user_id = req.params.id
       let first_name = req.body.first_name
       let last_name = req.body.last_name
       let email_id = req.body.email_id
       console.log(
-        `Controller :: user :: update_user : user_id - ${user_id}, first_name - ${first_name}, last_name - ${last_name}, email_id - ${email_id}`
+        `${userConstant.USER_CONTROLLER} :: update_user : user_id - ${user_id}, first_name - ${first_name}, last_name - ${last_name}, email_id - ${email_id}`
       )
       res.status(200).json({ status: 'success' })
     } catch (e) {
@@ -53,17 +54,17 @@ export default class UserController {
     }
   }
 
-  static async delete_user (req, res) {
+  static async delete_user(req, res) {
     try {
       let user_id = req.params.id
-      console.log(`Controller :: user :: delete_user : user_id - ${user_id}`)
+      console.log(`${userConstant.USER_CONTROLLER} :: delete_user : user_id - ${user_id}`)
       res.status(200).json({ status: 'success' })
     } catch (e) {
       res.status(500).json({ error: e.message })
     }
   }
 
-  static async delete_all_users (req, res) {
+  static async delete_all_users(req, res) {
     try {
       res.status(200).json({ status: 'success' })
     } catch (e) {

@@ -12,7 +12,9 @@ pipeline {
     triggers {
         githubPush()
     }
-    tools {nodejs "nodejs"}
+    tools {
+        nodejs "nodejs"
+    }
     stages {
         stage('Checkout') {
             steps {

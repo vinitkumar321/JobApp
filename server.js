@@ -9,7 +9,6 @@ app.use(express.json())
 app.use(express.static(__dirname + '/static_content'))
 let port = process.env.PORT || 8000
 
-
 app.get('/', (req, res) => {
   res.render('server.ejs')
   console.log('Welcome to the Job Application Manager')

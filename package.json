@@ -10,7 +10,7 @@
     "start": "nodemon server.js",
     "test": "jest",
     "format": "prettier-standard --format",
-    "build": "npm run lint"
+    "build": "npm run format;npm run lint"
   },
   "author": "Vinit Kumar",
   "license": "ISC",

@@ -9,7 +9,8 @@
     "lint-fix": "eslint --fix .  --ext .js",
     "start": "nodemon server.js",
     "test": "jest",
-    "format": "prettier-standard --format"
+    "format": "prettier-standard --format",
+    "build": "npx eslint ./"
   },
   "author": "Vinit Kumar",
   "license": "ISC",
@@ -19,7 +20,7 @@
     "express": "^4.18.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20",
-    "prettier-standard": "^16.4.1"
+    "prettier-standard": "^15.0.1"
   },
   "devDependencies": {
     "eslint": "^8.35.0",

@@ -1,5 +1,5 @@
 import UserModel from '../model/user.js'
-import userConstant from '../constants/user'
+import userConstant from '../constants/user.js'
 
 export default class UserController {
   static async get_all_users(req, res) {

@@ -1,5 +1,5 @@
 import pool from '../utils/database.js'
-import userConstant from '../constants/user'
+import userConstant from '../constants/user.js'
 
 export default class UserModel {
   static async get_user(user_id) {
